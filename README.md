@@ -7,8 +7,12 @@ Module to get list of brawlers or detail about brawler
 1. API KEY:
 To get `API_KEY` you need to go to https://developer.brawlstars.com/#/
 2. Get module from github: 
-```
+```bash
 go get github.com/urcop/GoApiClient
+```
+3. Export your API KEY
+```bash
+export API_KEY=<YOUR_API_KEY>
 ```
 
 ### Example `main.go`
@@ -18,14 +22,14 @@ package main
 
 import (
 	"fmt"
+	"github.com/urcop/GoApiClient"
 	"log"
 	"os"
-	"urcop/httpclient/BrawlAPI/BrawlAPI"
 )
 
 func main() {
 	apiKey := os.Getenv("API_KEY")
-	client, err := BrawlAPI.NewClient(apiKey)
+	client, err := GoAPIClient.NewClient(apiKey)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -46,6 +50,7 @@ func main() {
 
 	fmt.Println(brawler.Info())
 }
+
 ```
 
 ### Output
